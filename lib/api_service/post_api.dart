@@ -6,7 +6,7 @@ import 'package:noviindus_ayurvedic_patient_management/screen/services/injection
 import 'package:noviindus_ayurvedic_patient_management/screen/services/shared_preference.dart';
 
 @singleton
-class PostApi {
+class PostApiService {
   String baseUrl = "https://flutter-amr.noviindus.in/api/";
   Future<bool> loginUserAccount() async {
     try {
@@ -31,6 +31,31 @@ class PostApi {
       }
     } on DioException catch (e, st) {
       return false;
+    }
+  }
+  Future registerPatient(data) async {
+    try {
+      String url = "${baseUrl}PatientUpdate";
+      Response response = await Dio().post(
+        Uri.encodeFull(url),
+        data: data,
+        options: Options(
+          headers: {
+            'authorization': "Bearer ${locator<Shared>().token}",
+          },
+        ),
+      );
+      print(response.data);
+      if ((response.statusCode ?? 0) == 200) {
+        Map<String, dynamic> responseDataMap = json.decode('$response');
+        if (responseDataMap['status'] == true) {
+        }
+        return true;
+      }
+      return false;
+    } on DioException catch (e, st) {
+      print(e);
+      print(st);
     }
   }
 }

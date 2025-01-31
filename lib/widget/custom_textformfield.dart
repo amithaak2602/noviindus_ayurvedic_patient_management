@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class CustomTextFormField extends StatelessWidget {
   final TextEditingController? controller;
@@ -16,17 +16,17 @@ class CustomTextFormField extends StatelessWidget {
 
   const CustomTextFormField(
       {super.key,
-        this.controller,
-        this.hintText,
-        this.maxLines,
-        this.isEnable = true,
-        this.readOnly = false,
-        this.filled = false,
-        this.icon,
-        this.textInputType,
-        this.validator,
-        this.focusNode,
-        this.onTap});
+      this.controller,
+      this.hintText,
+      this.maxLines,
+      this.isEnable = true,
+      this.readOnly = false,
+      this.filled = false,
+      this.icon,
+      this.textInputType,
+      this.validator,
+      this.focusNode,
+      this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -38,19 +38,18 @@ class CustomTextFormField extends StatelessWidget {
       maxLines: maxLines ?? 1,
       controller: controller,
       focusNode: focusNode,
-      style: Theme.of(context)
-          .textTheme
-          .bodyLarge
-          ?.copyWith(color: Colors.grey.shade500),
+      style: TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.normal,
+          fontSize: 16.sp,),
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.only(left: 20, top: 0, bottom: 20),
-        suffixIcon: icon,filled:filled ,fillColor:Colors.grey.shade100 ,
+        suffixIcon: icon,
+        filled: true,
+        fillColor: Color(0x40d9d9d9),
         alignLabelWithHint: true,
         hintText: hintText,
-        hintStyle: Theme.of(context)
-            .textTheme
-            .labelMedium
-            ?.copyWith(color: Colors.grey.shade500),
+        hintStyle: TextStyle(color: Colors.grey.shade400, fontSize: 16.sp),
         enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
                 color: Colors.grey.shade400,
