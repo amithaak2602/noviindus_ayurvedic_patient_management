@@ -507,27 +507,7 @@ class BookingDetails {
         }));
     var bytes = await pdf.save();
     await saveFile(bytes, "Booking_Details", patientDtl);
-    // if (await _requestPermission(Permission.storage)) {
-    //   final directory = await Directory('/storage/emulated/0/Download');
-    //
-    //   String filepath = directory.path ?? "";
-    //
-    //   String date = DateTime.now().millisecondsSinceEpoch.toString();
-    //   final String fileName = '$filepath/invoice$date.pdf';
-    //   final file = File(fileName);
-    //   await file.writeAsBytes(bytes, flush: true);
-    //   Common.toast('$filepath/invoice$date downloaded successfully');
-    // }
 
-    // final directory = await Directory('/storage/emulated/0/Download');
-    //
-    // String filepath = directory.path ?? "";
-    // String date = DateTime.now().millisecondsSinceEpoch.toString();
-    // final String fileName = '$filepath/Invoice$date.pdf';
-    // final file = File(fileName);
-    // await file.writeAsBytes(bytes, flush: true);
-    // triggerNotification(date,fileName);
-    // Common.toast('Invoice$date.pdf saved to Downloads');
   }
 
   static Future<void> saveFile(
