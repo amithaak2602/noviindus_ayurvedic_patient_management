@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:noviindus_ayurvedic_patient_management/screen/login/login_screen.dart';
 import 'package:noviindus_ayurvedic_patient_management/screen/services/injection/injection.dart';
+import 'package:noviindus_ayurvedic_patient_management/screen/splash/splash_screen.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 void main() async {
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
           ),
-          home: const LoginScreen(),
+          home: const SplashScreen(),
         );
       },
     );
